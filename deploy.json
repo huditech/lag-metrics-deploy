@@ -4,8 +4,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.14.6.61914",
-      "templateHash": "13685125061666166978"
+      "version": "0.14.46.61228",
+      "templateHash": "13133697828386985613"
     }
   },
   "parameters": {
@@ -44,7 +44,7 @@
       "plan": "[if(parameters('serviceCatalog'), null(), createObject('name', 'standard', 'product', 'lag-metrics', 'publisher', 'tbd', 'version', '1.0.0'))]",
       "properties": {
         "managedResourceGroupId": "[variables('managedGroupId')]",
-        "applicationDefinitionId": "[if(parameters('serviceCatalog'), '/subscriptions/55c079e7-8c64-4e3d-b797-a71ebda23e81/resourceGroups/lag-metrics-definition/providers/Microsoft.Solutions/applicationDefinitions/lag-metrics/overview', null())]",
+        "applicationDefinitionId": "[if(parameters('serviceCatalog'), '/subscriptions/55c079e7-8c64-4e3d-b797-a71ebda23e81/resourceGroups/lag-metrics-definition/providers/Microsoft.Solutions/applicationDefinitions/lag-metrics', null())]",
         "parameters": {
           "eventHubConnectionString": {
             "value": "[parameters('eventHubConnectionString')]"
