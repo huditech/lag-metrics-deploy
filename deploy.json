@@ -4,15 +4,11 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.14.46.61228",
-      "templateHash": "13133697828386985613"
+      "version": "0.14.85.62628",
+      "templateHash": "3691465827612702838"
     }
   },
   "parameters": {
-    "serviceCatalog": {
-      "type": "bool",
-      "defaultValue": false
-    },
     "location": {
       "type": "string",
       "defaultValue": "[resourceGroup().location]"
@@ -30,21 +26,21 @@
       "type": "securestring"
     }
   },
-  "variables": {
-    "managedGroupId": "[format('{0}-resources-{1}', resourceGroup().id, uniqueString(resourceGroup().id))]",
-    "kind": "[if(parameters('serviceCatalog'), 'servicecatalog', 'marketplace')]"
-  },
   "resources": [
     {
       "type": "Microsoft.Solutions/applications",
       "apiVersion": "2021-07-01",
       "name": "lag-metrics",
-      "kind": "[variables('kind')]",
+      "kind": "marketplace",
       "location": "[parameters('location')]",
-      "plan": "[if(parameters('serviceCatalog'), null(), createObject('name', 'standard', 'product', 'lag-metrics', 'publisher', 'tbd', 'version', '1.0.0'))]",
+      "plan": {
+        "name": "standard",
+        "product": "lag-metrics",
+        "publisher": "huditechughaftungsbeschrnkt1673457598758",
+        "version": "1.0.0"
+      },
       "properties": {
-        "managedResourceGroupId": "[variables('managedGroupId')]",
-        "applicationDefinitionId": "[if(parameters('serviceCatalog'), '/subscriptions/55c079e7-8c64-4e3d-b797-a71ebda23e81/resourceGroups/lag-metrics-definition/providers/Microsoft.Solutions/applicationDefinitions/lag-metrics', null())]",
+        "managedResourceGroupId": "[format('{0}-resources-{1}', resourceGroup().id, uniqueString(resourceGroup().id))]",
         "parameters": {
           "eventHubConnectionString": {
             "value": "[parameters('eventHubConnectionString')]"
