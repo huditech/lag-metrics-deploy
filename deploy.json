@@ -4,8 +4,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.14.85.62628",
-      "templateHash": "3691465827612702838"
+      "version": "0.36.1.42791",
+      "templateHash": "1211692962893095049"
     }
   },
   "parameters": {
@@ -37,7 +37,7 @@
         "name": "standard",
         "product": "lag-metrics",
         "publisher": "huditechughaftungsbeschrnkt1673457598758",
-        "version": "1.0.0"
+        "version": "2.0.3"
       },
       "properties": {
         "managedResourceGroupId": "[format('{0}-resources-{1}', resourceGroup().id, uniqueString(resourceGroup().id))]",

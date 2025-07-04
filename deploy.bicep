@@ -19,7 +19,7 @@ resource managedApp 'Microsoft.Solutions/applications@2021-07-01' = {
     name: 'standard'
     product: 'lag-metrics'
     publisher: 'huditechughaftungsbeschrnkt1673457598758'
-    version: '1.0.0'
+    version: '2.0.3'
   }
   properties: {
     #disable-next-line use-resource-id-functions
